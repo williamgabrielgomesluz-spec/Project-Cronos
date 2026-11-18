@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cronos</title>
+<meta name="description" content="Cronos: agenda escolar online para organizar provas, tarefas e prazos.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="w">
+<div class="hero"><div class="brand">⏳ Cronos<small>Projeto Cronos · agenda escolar</small></div><h1 id="gr">Olá! 👋</h1><p id="dt0"></p>
+<div class="sts"><div><b id="s1">0</b><span>a fazer</span></div><div><b id="s2">0</b><span>atrasadas</span></div><div><b id="s3">0%</b><span>feito</span></div></div></div>
+<div class="tabs" id="tabs"><button data-t="home" class="on" type="button">🏠 Início</button><button data-t="cal" type="button">📅 Calendário</button><button data-t="list" type="button">✅ Tarefas</button><button data-t="about" type="button">ℹ️ Sobre</button></div>
+<div id="v-home">
+<div class="card"><h2>🔔 Precisa de atenção</h2><div id="rems"></div></div>
+<div class="card"><h2>🗓️ Próximos 7 dias</h2><div id="week"></div></div>
+<div class="tip">💡 Dica: faça primeiro o que vence primeiro. Divida trabalhos grandes em pequenos passos e cadastre cada um.</div>
+<button class="lk" id="notif" type="button">🔔 Receber notificações no navegador</button>
+</div>
+<div id="v-cal" hidden>
+<div class="card"><div class="hd"><button id="pv" type="button" aria-label="Mês anterior">‹</button><h2 id="mt"></h2><button id="nx" type="button" aria-label="Próximo mês">›</button></div>
+<div class="cal" id="cal"></div>
+<div class="lg"><span><span style="color:var(--tarefa)">●</span> Tarefa</span><span><span style="color:var(--prova)">●</span> Prova</span><span><span style="color:var(--prazo)">●</span> Entrega</span></div></div>
+<div class="card"><h2 id="dh"></h2><div id="day"></div></div>
+</div>
+<div id="v-about" hidden>
+<div class="card"><h2>⏳ O que é o Cronos?</h2><p>O Cronos é uma agenda escolar online para organizar provas, trabalhos e prazos em um só lugar, de um jeito simples e visual.</p><p>O nome vem de <i>chronos</i>, que significa “tempo” em grego: a ideia é ajudar você a ficar no controle dele.</p></div>
+<div class="card"><h2>🎯 Para que serve?</h2><ul><li>Anotar <b>tarefas</b>, <b>provas</b> e <b>entregas</b> com data.</li><li>Ver tudo num <b>calendário</b> colorido.</li><li>Receber <b>lembretes</b> antes do prazo, para nada ser esquecido.</li><li>Acompanhar o que já foi feito e o que está atrasado.</li></ul></div>
+<div class="card"><h2>👥 Para quem é?</h2><div class="pub"><div><b>🧑‍🎓 Público principal</b><br>Adolescentes que têm dificuldade em organizar o tempo: esquecem prazos, acumulam tarefas ou não sabem por onde começar.</div><div><b>🌟 Também serve para</b><br>Universitários, quem estuda para concursos ou cursos, trabalhadores e qualquer pessoa que queira organizar melhor a rotina.</div></div></div>
+<div class="card"><h2>🚀 Como usar</h2><ul><li>Toque em <b>＋ Adicionar</b>.</li><li>Escolha o tipo (tarefa, prova ou entrega) e a data.</li><li>Acompanhe tudo em <b>Início</b> e marque ✅ quando terminar.</li></ul><p class="s" style="margin-top:10px">Seus dados ficam salvos neste aparelho.</p></div>
+</div>
+<div id="v-list" hidden>
+<div class="card"><div class="fl" id="fl"><button data-f="p" class="on" type="button">A fazer</button><button data-f="d" type="button">Feitas</button><button data-f="a" type="button">Todas</button></div><div id="all"></div></div>
+</div>
+</div>
+<button class="fab" id="fab" type="button">＋ Adicionar</button>
+<div class="ov" id="ov"><div class="sheet" role="dialog" aria-label="Novo item">
+<h2>Novo item</h2>
+<label for="t">O que é?</label><input type="text" id="t" placeholder="Ex.: Prova de Matemática">
+<label>Tipo</label><div class="chips" id="ty"><button data-v="tarefa" class="on" type="button">📝 Tarefa</button><button data-v="prova" type="button">📖 Prova</button><button data-v="prazo" type="button">📤 Entrega</button></div>
+<label for="dt">Quando?</label><input type="date" id="dt">
+<div class="chips q" id="qk" style="margin-top:6px"><button data-d="0" type="button">Hoje</button><button data-d="1" type="button">Amanhã</button><button data-d="7" type="button">Em 1 semana</button></div>
+<label for="sb">Matéria (opcional)</label><input type="text" id="sb" placeholder="Ex.: História">
+<label for="rm">Me avisar</label><select id="rm"><option value="0">No dia</option><option value="1" selected>1 dia antes</option><option value="3">3 dias antes</option><option value="7">1 semana antes</option></select>
+<div class="acts"><button class="b2" id="cx" type="button">Cancelar</button><button class="b1" id="sv" type="button">Salvar</button></div>
+</div></div>
+<script src="script.js"></script>
+</body>
+</html>
