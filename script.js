@@ -61,5 +61,9 @@ document.querySelector('.w').onclick=function(e){
  var c=e.target.dataset.c,x=e.target.dataset.x;
  if(c){items.forEach(function(i){if(i.id==c)i.done=e.target.checked});save();render()}
  if(x){items=items.filter(function(i){return i.id!=x});save();render()}};
+function theme(d){document.documentElement.setAttribute('data-theme',d?'dark':'light');$('#tg').textContent=d?'☀️':'🌙';$('#tg').setAttribute('aria-label',d?'Ativar modo claro':'Ativar modo escuro')}
+var dark=false;try{dark=localStorage.getItem('cronos-tema')=='dark'}catch(e){}
+theme(dark);
+$('#tg').onclick=function(){dark=!dark;theme(dark);try{localStorage.setItem('cronos-tema',dark?'dark':'light')}catch(e){}};
 $('#notif').onclick=function(){try{Notification.requestPermission().then(function(p){$('#notif').textContent=p=='granted'?'✓ Notificações ativadas':'Notificações bloqueadas';try{var r=items.filter(function(i){return !i.done&&diff(i.date)<=i.rem});if(p=='granted'&&r.length)new Notification('Cronos',{body:r.length+' lembrete(s): '+r[0].t})}catch(e){}})}catch(e){$('#notif').textContent='Seu navegador não tem suporte'}};
 render();
